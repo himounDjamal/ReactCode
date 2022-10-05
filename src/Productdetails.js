@@ -1,5 +1,6 @@
 import React ,{useState, useEffect} from 'react'
 import { useLocation } from "react-router-dom";
+import './index.css';
 const Productdetails = () =>{
     const {state} = useLocation();
     const pr = state;
@@ -14,13 +15,20 @@ const Productdetails = () =>{
   {data && <div>
     <h2> {data.nom }</h2>
     <h3> {data.type} </h3>
-    <img src={`${data.img}`} alt='iphone' className='img'></img>
+   
     <table className="table">
-    <thead><tr><th>Nom</th><th>Label</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Value</th>
+        </tr>
+      </thead>
       <tbody>
-      {data.characteristics && data.characteristics.map( c=> <tr key={c.id}> <td> {c.name}</td> <td> {c.label}</td> </tr>
-    )}
+        {data.characteristics && data.characteristics.map( c=> <tr key={c.id}> <td> {c.name}</td> <td> {c.label}</td> </tr>
+        )}
       </tbody>
+      <div>{data.image && data.image.map( c=><img src={`${c.url}`} alt='Product ' className='img'></img>
+        )}</div>
     </table>
   </div>
   }

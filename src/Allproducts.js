@@ -10,7 +10,7 @@ const Allproducts = () => {
   } ,[])
   const navigate = useNavigate();
   const handleRoute = (props) =>{ 
-  navigate('/productdet', { state: props });
+  navigate('/Productdetails', { state: props });
 }
   return (
     <div className="dat">
@@ -18,7 +18,7 @@ const Allproducts = () => {
       <table className="table">
       <thead>
           <tr>
-            <th>id</th><th>Name</th><th>Type</th>
+            <th>id</th><th>Name</th><th>Type</th><th>Descreption</th>
           </tr>
       </thead>
        <tbody>
@@ -27,6 +27,7 @@ const Allproducts = () => {
              <td>{ item.id }</td>
              <td>{ item.nom }</td>
              <td>{ item.type }</td>
+             <td>{ item.descreption}</td>
            </tr>
            ))}
        </tbody>
